@@ -22,7 +22,7 @@ public class HelloResource {
     @GetMapping("hello")
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Hello from Spring boot";
+        return "Hello from Spring boot nuevo";
     }
     
 }
