@@ -12,17 +12,14 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- *
- * @author sotobotero
- */
+
 @RestController
 public class HelloResource {
     
     @GetMapping("hello")
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Hello from Spring boot nuevo";
+        return "Hello from Spring boot new";
     }
     
 }

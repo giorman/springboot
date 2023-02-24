@@ -1,0 +1,42 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: restbasic-gateway
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+        targetPort: 9090
+      hosts:
+        - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: restbasic
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - restbasic-gateway
+  http:
+    - match:
+        - uri:
+            exact: /hello
+        - uri:
+            prefix: /hello
+        - uri:
+            exact: /login
+        - uri:
+            exact: /logout
+        - uri:
+            prefix: /api/v1/products
+      route:
+        - destination:
+            host: restbasic
+            port:
+              number: 9090
