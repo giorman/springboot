@@ -1,24 +1,16 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: restbasic
+  name: restbasic-vs
 spec:
   hosts:
-    - "*"
+    - restbasic-test-project-istio.apps.ocpdes.ambientesbc.lab
   gateways:
     - restbasic-gateway
   http:
     - match:
         - uri:
             exact: /hello
-        - uri:
-            prefix: /hello
-        - uri:
-            exact: /login
-        - uri:
-            exact: /logout
-        - uri:
-            prefix: /api/v1/products
       route:
         - destination:
             host: restbasic

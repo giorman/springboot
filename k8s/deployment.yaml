@@ -4,17 +4,20 @@ metadata:
   name: restbasic
   labels:
     app: restbasic
+    version: v1
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: restbasic
+      version: v1
   template:
     metadata:
       annotations:
         sidecar.istio.io/inject: "true"
       labels:
         app: restbasic
+        version: v1
     spec:
       containers:
         - name: restbasic
