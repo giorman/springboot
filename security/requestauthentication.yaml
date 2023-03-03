@@ -9,4 +9,4 @@ spec:
       app: restbasic
   jwtRules:
     - issuer: "testing@secure.istio.io"
-      jwksUri: "https://raw.githubusercontent.com/istio/istio/release-1.6/security/tools/jwt/samples/jwks.json"
+      jwksUri: "https://github.com/giorman/springboot/blob/master/security/jwks.json"
