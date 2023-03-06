@@ -1,12 +1,12 @@
-apiVersion: security.istio.io/v1beta1
-kind: RequestAuthentication
+apiVersion: "security.istio.io/v1beta1"
+kind: "RequestAuthentication"
 metadata:
-  name: restbasic-authentication
+  name: gateway-authentication
   namespace: test-project-istio
 spec:
   selector:
     matchLabels:
-      app: restbasic
+      istio: ingressgateway
   jwtRules:
     - issuer: "testing@secure.istio.io"
       jwks: "{ 'keys':[{'e':'AQAB','kid':'mkJm4g3kderPQJ9WZRxacEe3ViD3pOYFgGfqsDs1zTw','kty':'RSA','n':'mXD2WCwonMm6N53TXuMgoxjJegYE7KGd3uBgIsJK1XOPupBh_g8g_dxKSA76ZZLbqH0TfGzk7wGkveXiF96kWGKDUFxRBK4NrI40Hc_tQMm71Q-91KV4CReJsJcULKqfZ61ejEwj5tXwMrkd0-wlvpDjK1YdXCMRb2sioevZ224BcZzSWYngIL8w6_lgYPX9PhlvSoBlik4cBfQNjaFZ6XrJDknzoer7j4OjIBzQRNh-Qe_OpNhN-UkWywQefa2Cc9ZBd9Xfsrm5P3Okrek6rP7k0vXfSwCFZLO4Mqxg9NaiEVMxj-1KeFOfvjygMOlPnQBSKbf98ksMeBTVWJhwRw'}]}"
