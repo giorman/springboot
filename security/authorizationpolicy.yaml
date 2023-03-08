@@ -7,8 +7,16 @@ spec:
   selector:
     matchLabels:
       app: restbasic
+      version: v1
   action: ALLOW
   rules:
     - from:
-        - source:
-            requestPrincipals: ["testing@secure.istio.io/testing@secure.istio.io"]
+      - source:
+          requestPrincipals: ["testing@secure.istio.io/testing@secure.istio.io"]
+      to:
+        - operation:
+            methods: ["GET"]
+            paths: ["*"]
+      when:
+        - key: request.auth.claims[iss]
+          values: ["testing@secure.istio.io"]

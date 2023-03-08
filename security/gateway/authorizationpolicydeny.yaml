@@ -1,0 +1,15 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: restbasic-authorization-deny
+  namespace: test-project-istio
+spec:
+  selector:
+    matchLabels:
+      app: restbasic
+      version: v1
+  action: DENY
+  rules:
+    - from:
+      - source:
+          notRequestPrincipals: ["*"]
